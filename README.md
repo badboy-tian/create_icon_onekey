@@ -8,7 +8,7 @@ Supported platforms: Windows, macOS
 # 自定义（Custom）
 
 * 1、Android图标修改`assets/android.json`文件<br>
-  Android icon modification `assets/android.json` file<br><br>
+  Android icon modification `assets/android.json` file<br>
 ```
 {
       "size": "36x36",
@@ -18,7 +18,7 @@ Supported platforms: Windows, macOS
 ```
 
 * 2、IOS图标修改`assets/ios.json`文件<br>
-  IOS icon modification `assets/ios.json` file<br><br>
+  IOS icon modification `assets/ios.json` file<br>
 ```
 {
       "size": "20x20",
