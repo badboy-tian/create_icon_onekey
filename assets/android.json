@@ -1,0 +1,38 @@
+{
+  "images": [
+    {
+      "size": "36x36",
+      "dir": "mipmap-ldpi",
+      "filename": "ic_launcher.png"
+    },
+    {
+      "size": "48x48",
+      "dir": "mipmap-mdpi",
+      "filename": "ic_launcher.png"
+    },
+    {
+      "size": "72x72",
+      "dir": "mipmap-hdpi",
+      "filename": "ic_launcher.png"
+    },
+    {
+      "size": "96x96",
+      "dir": "mipmap-xhdpi",
+      "filename": "ic_launcher.png"
+    },
+    {
+      "size": "144x144",
+      "dir": "mipmap-xxhdpi",
+      "filename": "ic_launcher.png"
+    },
+    {
+      "size": "192x192",
+      "dir": "mipmap-xxxhdpi",
+      "filename": "ic_launcher.png"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": "icon.i7play.com"
+  }
+}

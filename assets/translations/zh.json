@@ -1,0 +1,13 @@
+{
+  "title": "图标工厂",
+  "file_path": "文件路径",
+  "btn_choose": "选择文件",
+  "text_choose": "选择平台",
+  "btn_start": "开始创建",
+  "choose_file_tip": "请选择文件",
+  "choose_platform_tip": "请选择平台",
+  "create_android_icon_tip": "开始创建Android图标",
+  "create_ios_icon_tip": "开始创建iOS图标",
+  "create_file_tip": "创建文件",
+  "create_success_tip": "图标全部生成完毕"
+}
