@@ -9,6 +9,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image/image.dart' as img;
+import 'package:path_provider/path_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -126,10 +127,16 @@ class _MainPageState extends State<MainPage> {
     }
 
     File file = File(result.files.first.path!);
+    /*if (result.files.first.bytes == null) {
+      file = File(result.files.first.path!);
+    } else {
+      var bytes = result.files.first.bytes;
+      var temp = await getTemporaryDirectory();
+      file = File("${temp.path}/${result.files.first.name}");
+      file.writeAsBytesSync(bytes!);
+    }*/
 
     controller.text = file.path;
-    var image = await img.decodeImageFile(file.path);
-    print('width: ${image!.width}, height: ${image.height}');
   }
 
   void _onClickCreate() {
