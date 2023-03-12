@@ -9,8 +9,24 @@ Supported platforms: Windows, macOS
 
 * 1、Android图标修改`assets/android.json`文件<br>
   Android icon modification `assets/android.json` file<br><br>
+```
+{
+      "size": "36x36",
+      "dir": "mipmap-ldpi",
+      "filename": "ic_launcher.png"
+    }
+```
+
 * 2、IOS图标修改`assets/ios.json`文件<br>
   IOS icon modification `assets/ios.json` file<br><br>
+```
+{
+      "size": "20x20",
+      "idiom": "iphone",
+      "filename": "icon-20@2x.png",
+      "scale": "2x"
+    }
+```
 
 ## 示例图
 
