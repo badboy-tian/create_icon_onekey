@@ -1,4 +1,13 @@
 {
-  "title": "图标工厂",
-  "file_path": "文件路径"
+  "title": "Icon Factory",
+  "file_path": "File path",
+  "btn_choose": "Choose file",
+  "text_choose": "Select platform",
+  "btn_start": "Start creating",
+  "choose_file_tip": "Please choose file",
+  "choose_platform_tip": "Please choose platform",
+  "create_android_icon_tip": "Start creating Android icons",
+  "create_ios_icon_tip": "Start creating iOS icons",
+  "create_file_tip": "Create file",
+  "create_success_tip": "Icons all generated"
 }

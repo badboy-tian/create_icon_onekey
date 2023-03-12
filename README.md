@@ -1,16 +1,15 @@
 # create_icon
 
-A new Flutter project.
+一键创建APP桌面图标，输入1024x1024的圆角图，输出android图片和ios图标。
+Create APP desktop icons with one click, input 1024x1024 rounded images, output android images and ios icons.
 
-## Getting Started
+支持的平台：Windows、macOS
+Supported platforms: Windows, macOS
 
-This project is a starting point for a Flutter application.
+## 示例图
 
-A few resources to get you started if this is your first Flutter project:
+![img.png](img.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![img_1.png](img_1.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![img_2.png](img_2.png)

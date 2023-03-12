@@ -9,6 +9,8 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image/image.dart' as img;
+import 'package:url_launcher/url_launcher.dart';
+import 'package:window_manager/window_manager.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -184,6 +186,8 @@ class _MainPageState extends State<MainPage> {
     setState(() {
       result += "Android${'create_success_tip'.tr()}\n";
     });
+
+    launch('file://${dir.path}');
   }
 
   Future<void> _createIos() async {
@@ -227,5 +231,8 @@ class _MainPageState extends State<MainPage> {
     setState(() {
       result += "IOS${'create_success_tip'.tr()}\n";
     });
+
+    //launchUrl(Uri.file("file://${dir.path}"));
+    launch('file://${dir.path}');
   }
 }
