@@ -187,7 +187,9 @@ class _MainPageState extends State<MainPage> {
       result += "Android${'create_success_tip'.tr()}\n";
     });
 
-    launch('file://${dir.path}');
+    final String filePath = dir.absolute.path;
+    final Uri uri = Uri.file(filePath);
+    await launchUrl(uri);
   }
 
   Future<void> _createIos() async {
@@ -232,7 +234,8 @@ class _MainPageState extends State<MainPage> {
       result += "IOS${'create_success_tip'.tr()}\n";
     });
 
-    //launchUrl(Uri.file("file://${dir.path}"));
-    launch('file://${dir.path}');
+    final String filePath = dir.absolute.path;
+    final Uri uri = Uri.file(filePath);
+    await launchUrl(uri);
   }
 }
