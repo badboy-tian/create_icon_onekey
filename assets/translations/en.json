@@ -8,6 +8,7 @@
   "choose_platform_tip": "Please choose platform",
   "create_android_icon_tip": "Start creating Android icons",
   "create_ios_icon_tip": "Start creating iOS icons",
+  "create_mac_icon_tip": "Start creating MAC icons",
   "create_file_tip": "Create file",
   "create_success_tip": "Icons all generated"
 }

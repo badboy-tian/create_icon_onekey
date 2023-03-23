@@ -8,6 +8,7 @@
   "choose_platform_tip": "请选择平台",
   "create_android_icon_tip": "开始创建Android图标",
   "create_ios_icon_tip": "开始创建iOS图标",
+  "create_mac_icon_tip": "开始创建Mac图标",
   "create_file_tip": "创建文件",
   "create_success_tip": "图标全部生成完毕"
 }

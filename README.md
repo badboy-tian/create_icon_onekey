@@ -28,6 +28,17 @@ Supported platforms: Windows, macOS
     }
 ```
 
+* 3、MACOS图标修改`assets/mac.json`文件<br>
+  MACOS icon modification `assets/mac.json` file<br>
+```
+ {
+      "size" : "16x16",
+      "idiom" : "mac",
+      "filename" : "app_icon_16.png",
+      "scale" : "1x"
+    }
+```
+
 ## 示例图
 
 ![img.png](img.png)

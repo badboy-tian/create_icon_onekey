@@ -24,6 +24,7 @@ class _MainPageState extends State<MainPage> {
   var controller = TextEditingController();
   var cbAndroid = true;
   var cbIos = true;
+  var cbMac = true;
   var result = "";
 
   @override
@@ -81,6 +82,16 @@ class _MainPageState extends State<MainPage> {
                   },
                 ),
                 const Text('IOS'),
+                const SizedBox(width: 20),
+                Checkbox(
+                  value: cbMac,
+                  onChanged: (value) {
+                    setState(() {
+                      cbMac = value!;
+                    });
+                  },
+                ),
+                const Text('MAC'),
               ],
             ),
             const Padding(padding: EdgeInsets.only(top: 10)),
@@ -161,6 +172,10 @@ class _MainPageState extends State<MainPage> {
     if (cbIos) {
       _createIos();
     }
+
+    if(cbMac){
+      _createMac();
+    }
   }
 
   Future<void> _createAndroid() async {
@@ -239,6 +254,53 @@ class _MainPageState extends State<MainPage> {
 
     setState(() {
       result += "IOS${'create_success_tip'.tr()}\n";
+    });
+
+    final String filePath = dir.absolute.path;
+    final Uri uri = Uri.file(filePath);
+    await launchUrl(uri);
+  }
+
+  Future<void> _createMac() async {
+    setState(() {
+      result += "\n${'create_mac_icon_tip'.tr()}\n";
+    });
+
+    var file = File(controller.text);
+    var image = img.decodeImage(file.readAsBytesSync())!;
+    var dir = checkOrCreateDir(file.parent.path + "/mac");
+
+    //生成一个AppIcon.appiconset文件夹
+    var appIconDir = checkOrCreateDir(dir.path + "/AppIcon.appiconset");
+    //生成一个Contents.json文件, 从assets/ios.json中读取
+    var contentsFile = checkOrCreateFile(appIconDir.path + "/Contents.json");
+
+    var contents = await rootBundle.loadString("assets/macos.json");
+    contentsFile.writeAsStringSync(contents);
+
+    //读取contents，用json
+    var json = IOSIconItem.fromJson(jsonDecode(contents));
+    var images = json.images;
+    //遍历images，根据size生成图片
+    for (var imageItem in images) {
+      var size = imageItem.size;
+      var width = double.parse(size.split("x")[0]);
+      var height = double.parse(size.split("x")[1]);
+
+      var scale = int.parse(imageItem.scale.replaceAll("x", ""));
+      var resWidth = width * scale;
+      var resHeight = height * scale;
+      var resized = img.copyResize(image, width: resWidth.toInt(), height: resHeight.toInt());
+      var path = "${appIconDir.path}/${imageItem.filename}";
+      setState(() {
+        result += "${'create_file_tip'.tr()}: $path\n";
+      });
+      var file = checkOrCreateFile(path);
+      file.writeAsBytesSync(img.encodePng(resized));
+    }
+
+    setState(() {
+      result += "MAC${'create_success_tip'.tr()}\n";
     });
 
     final String filePath = dir.absolute.path;
