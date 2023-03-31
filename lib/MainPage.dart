@@ -9,6 +9,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image/image.dart' as img;
+import 'package:image/image.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:window_manager/window_manager.dart';
@@ -243,6 +244,7 @@ class _MainPageState extends State<MainPage> {
       var scale = int.parse(imageItem.scale.replaceAll("x", ""));
       var resWidth = width * scale;
       var resHeight = height * scale;
+      image.remapChannels(ChannelOrder.rgb);
       var resized = img.copyResize(image, width: resWidth.toInt(), height: resHeight.toInt());
       var path = "${appIconDir.path}/${imageItem.filename}";
       setState(() {
@@ -290,6 +292,7 @@ class _MainPageState extends State<MainPage> {
       var scale = int.parse(imageItem.scale.replaceAll("x", ""));
       var resWidth = width * scale;
       var resHeight = height * scale;
+      image.remapChannels(ChannelOrder.rgb);
       var resized = img.copyResize(image, width: resWidth.toInt(), height: resHeight.toInt());
       var path = "${appIconDir.path}/${imageItem.filename}";
       setState(() {
