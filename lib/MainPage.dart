@@ -174,7 +174,7 @@ class _MainPageState extends State<MainPage> {
       _createIos();
     }
 
-    if(cbMac){
+    if (cbMac) {
       _createMac();
     }
   }
@@ -244,14 +244,24 @@ class _MainPageState extends State<MainPage> {
       var scale = int.parse(imageItem.scale.replaceAll("x", ""));
       var resWidth = width * scale;
       var resHeight = height * scale;
-      image.remapChannels(ChannelOrder.rgb);
       var resized = img.copyResize(image, width: resWidth.toInt(), height: resHeight.toInt());
+      var newImage = img.Image.from(resized);
+      //遍历resized像素点, 把透明的区域设置成白色
+      for (var x = 0; x < resized.width; x++) {
+        for (var y = 0; y < resized.height; y++) {
+          var pixel = resized.getPixel(x, y);
+          if (pixel.a == 0) {
+            newImage.setPixelRgba(x, y, 255, 255, 255, 255);
+          }
+        }
+      }
+
       var path = "${appIconDir.path}/${imageItem.filename}";
       setState(() {
         result += "${'create_file_tip'.tr()}: $path\n";
       });
       var file = checkOrCreateFile(path);
-      file.writeAsBytesSync(img.encodePng(resized));
+      file.writeAsBytesSync(img.encodePng(newImage));
     }
 
     setState(() {
@@ -292,14 +302,24 @@ class _MainPageState extends State<MainPage> {
       var scale = int.parse(imageItem.scale.replaceAll("x", ""));
       var resWidth = width * scale;
       var resHeight = height * scale;
-      image.remapChannels(ChannelOrder.rgb);
-      var resized = img.copyResize(image, width: resWidth.toInt(), height: resHeight.toInt());
+      var resized = img.copyResize(image, width: resWidth.toInt(), height: resHeight.toInt(), interpolation: img.Interpolation.linear);
+      var newImage = img.Image.from(resized);
+      //遍历resized像素点, 把透明的区域设置成白色
+      for (var x = 0; x < resized.width; x++) {
+        for (var y = 0; y < resized.height; y++) {
+          var pixel = resized.getPixel(x, y);
+          if (pixel.a == 0) {
+            newImage.setPixelRgba(x, y, 255, 255, 255, 255);
+          }
+        }
+      }
+
       var path = "${appIconDir.path}/${imageItem.filename}";
       setState(() {
         result += "${'create_file_tip'.tr()}: $path\n";
       });
       var file = checkOrCreateFile(path);
-      file.writeAsBytesSync(img.encodePng(resized));
+      file.writeAsBytesSync(img.encodePng(newImage));
     }
 
     setState(() {
